@@ -84,7 +84,7 @@ public class SenderServiceApplication
        }
     }
 
-    public void getRequest()
+    public String getRequest()
     {
        HttpHeaders headers = new HttpHeaders();
        headers.setContentType(MediaType.APPLICATION_JSON);
@@ -98,6 +98,7 @@ public class SenderServiceApplication
 //       //
        
        System.out.println("Getting all Data: "+result);
+	   return result;
     }
 
     public void postRequest()
