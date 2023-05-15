@@ -90,7 +90,7 @@ public class SenderServiceApplication
        headers.setContentType(MediaType.APPLICATION_JSON);
        HttpEntity<String> request = new HttpEntity<String>("Getting Data", headers);
 
-       String result = restTemplate.getForObject("http://localhost:8083/getall", String.class, request);
+       String result = restTemplate.getForObject("http://receiver-service-1-git-sample-receiver-sender.apps.lab.tayana.in/getall", String.class, request);
 
 //       //
 //       List<String> lastIndex = result.lines().toList();
@@ -108,7 +108,7 @@ public class SenderServiceApplication
        String requestJson = "{\"name\":\"Employee\", \"role\":\"Developer\"}";
        HttpEntity<String> request = new HttpEntity<String>(requestJson, headers);
      
-       String result = restTemplate.postForObject("http://localhost:8083/add", request, String.class);
+       String result = restTemplate.postForObject("http://receiver-service-1-git-sample-receiver-sender.apps.lab.tayana.in/add", request, String.class);
        System.out.println("Inserting Data: "+result);
     
        }
@@ -118,7 +118,7 @@ public class SenderServiceApplication
        Map < String, String > params = new HashMap < String, String > ();
        params.put("id", getByIdVal);   //
 
-       String result = restTemplate.getForObject("http://localhost:8083/getone/{id}", String.class, params);
+       String result = restTemplate.getForObject("http://receiver-service-1-git-sample-receiver-sender.apps.lab.tayana.in/getone/{id}", String.class, params);
 
        System.out.println("Getting Data By Id: "+result);
 
@@ -135,7 +135,7 @@ public class SenderServiceApplication
        Map < String, String > params = new HashMap < String, String > ();
        params.put("id", putVal);
 
-       restTemplate.put("http://localhost:8083/update/{id}", request, params);
+       restTemplate.put("http://receiver-service-1-git-sample-receiver-sender.apps.lab.tayana.in/update/{id}", request, params);
     }
 
     public void deleteByIdRequest(String deleteVal)
@@ -143,7 +143,7 @@ public class SenderServiceApplication
        Map < String, String > params = new HashMap < String, String > ();
        params.put("id", deleteVal);
 
-       restTemplate.delete("http://localhost:8083/delete/{id}", params);
+       restTemplate.delete("http://receiver-service-1-git-sample-receiver-sender.apps.lab.tayana.in/delete/{id}", params);
 
     }
 
